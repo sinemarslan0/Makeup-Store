@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makeup Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Welcome to Makeup Store</h1>
+  <ul>
+    <% products.forEach((product) => { %>
+      <li>
+        <%= product.name %> - <%= product.description %> - $<%= product.price %>
+        <form action="/cart/add/<%= product._id %>" method="POST">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/cart">Go to Cart</a>
+</body>
+</html>
